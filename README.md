@@ -10,5 +10,16 @@ This is a trail on ROS 2, the Robot Operating System, through the Python Turtle 
 * Install OpenCV (`pip3 install opencv-python`)
 * Install imutils: (`pip3 install imutils`)
 
+Before moving forward, clone this repository:
+```
+$ cd
+$ 
+```
+
+
+  <p align="left">
+  <img src="figures/1.png" alt="" width="40%">
+  </p>
+
 
 

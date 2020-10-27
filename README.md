@@ -13,8 +13,13 @@ This is a trail on ROS 2, the Robot Operating System, through the Python Turtle 
 Before moving forward, clone this repository:
 ```
 $ cd
-$ 
+$ git clone https://github.com/khouka/ROS2_Middleware_Trail_Python_Turtle.git
 ```
+
+## Pre-trial Python Scripts:
+Inside the  `ROS2/src/Example/` folder, you will find four python scripts. Simply run them by `$ python3 <script name>`. Please run them one by one and go over the code explanations provided below. They will come in handy later on while doing the tasks. 
+
+- `Goal_seeker.py`: A python turtle script that drives the turtle towards a predestined goal, whenever the turtle reaches the goal, the goal displaces to a random point, and the user gets notified. There are other features inside. Upon running the file the output of this file will look like the following:
 
 
   <p align="left">

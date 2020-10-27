@@ -324,8 +324,8 @@ Read the “The Code Explained” to have a more detailed and informative descri
   
 ## What to do next:
 
-After completing the Pre-trial script, head to the `ROS2/src/Trial_instructions.md`, there you will find the instructions for the first trial and how to commence the trial!
+- After completing the Pre-trial script, head to the `ROS2/src/Trial_instructions.md`, there you will find the instructions on how to commence the trial!
 
+- After completing the `ROS2/src/Trial_instructions.md` trail and it's tasks, you can then direct to the second trail for the ROS 2 actions inside `ROS2/src/Trial2_instructions.md`.   
 
-  
 

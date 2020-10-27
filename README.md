@@ -324,6 +324,8 @@ Read the “The Code Explained” to have a more detailed and informative descri
   
 ## What to do next:
 
+After completing the Pre-trial script, head to the `ROS2/src/Trial_instructions.md`, there you will find the instructions for the first trial and how to commence the trial!
+
 
   
 

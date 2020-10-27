@@ -33,7 +33,7 @@ Inside the `ROS2/src/Example/`folder, you will find four python scripts. Simply 
 
 - `Turtle_Arena.py`: This is a python turtle script that creates a maze and sets the turtle to a specific location inside the maze. 
   <p align="left">
-  <img src="figures/1.png" alt="" width="40%">
+  <img src="https://media.giphy.com/media/ucPT02BXYWQhJVbJBg/giphy.gif" alt="" width="50%">
   </p>
   
 Read the “The Code Explained” to have a more detailed and informative description of the examples. The code will be broken down and explained for each of the examples.

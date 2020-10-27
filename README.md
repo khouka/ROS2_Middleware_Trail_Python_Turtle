@@ -21,7 +21,7 @@ Inside the `ROS2/src/Example/`folder, you will find four python scripts. Simply 
 
 - `Goal_seeker.py`: A python turtle script that drives the turtle towards a predestined goal, whenever the turtle reaches the goal, the goal displaces to a random point, and the user gets notified. There are other features inside. Upon running the file the output of this file will look like the following:
   <p align="left">
-  <img src="figures/1.png" alt="" width="40%">
+  <img src="https://media.giphy.com/media/SScsKuefizu5mZlJvt/giphy.gif" alt="" width="50%">
   </p>
   
 - `keyboard.py`: A simple python script which detects key presses, precisely the arrow keys and prints messages based on the direction of the key pressed. 

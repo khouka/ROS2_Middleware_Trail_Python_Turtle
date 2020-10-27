@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'webcam_pub_node = src.webcam_pub:main',
-                'webcam_sub_node = src.webcam_sub:main',
+                'webcam_pub_node = webcam.webcam_pub:main',
+                'webcam_sub_node = webcam.webcam_sub:main',
         ],
     },
 )

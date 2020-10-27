@@ -322,4 +322,8 @@ Read the “The Code Explained” to have a more detailed and informative descri
   ```
   We call the class TurtleMaze to be carried out. And we end it off with the mainloop() function, this  must be the last statement in a turtle graphics program. 
   
+## What to do next:
+
+
+  
 

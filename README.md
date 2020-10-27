@@ -28,7 +28,7 @@ Inside the `ROS2/src/Example/`folder, you will find four python scripts. Simply 
 
 - `red_detection.py`: A python script that uses OpenCV module. In this example, the program will read the image red.jpg inside the Examples/images as an OpenCV object. It will then display the original image and a mash of it, which only displays its red parts. 
   <p align="left">
-  <img src="figures/1.png" alt="" width="40%">
+  <img src="https://media.giphy.com/media/fZd6ugRxgHMmsitBCr/giphy.gif" alt="" width="50%">
   </p>
 
 - `Turtle_Arena.py`: This is a python turtle script that creates a maze and sets the turtle to a specific location inside the maze. 

@@ -5,7 +5,7 @@ This is a trail on ROS 2, the Robot Operating System, through the Python Turtle 
 ## Prerequisites: 
 * Ubuntu 18.04: https://releases.ubuntu.com/18.04/ (The Desktop Server is Recommended)
 * Git (`sudo apt-get install git`)
-* ROS 2 Eloquent Elusor: (Installing ROS 2 via Debian Packages) 
+* ROS 2 Eloquent Elusor: (https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/) 
 * Python 3 is recommended 
 * Install OpenCV (`pip3 install opencv-python`)
 * Install imutils: (`pip3 install imutils`)

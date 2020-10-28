@@ -11,3 +11,23 @@ The Robot Operating System is a set of software libraries for building robot app
 - ROS 2 Client and Service: https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Py-Service-And-Client/ 
 - ROS 2 Publisher/Subscriber Example: https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber/ 
 - ROS 2 Full Tutorial: https://index.ros.org/doc/ros2/Tutorials/
+
+## Overview: 
+
+### Setup: 
+  - Workspace
+  - Package
+  - Message Types
+  - Service Types 
+  - Build Package
+  
+### Pub/Sub Nodes:
+  - ROS 2 Publisher 
+  - ROS 2 Subscriber 
+
+### Client/Service Nodes: 
+  - Developing a Server node
+  - Developing a Client node
+
+
+

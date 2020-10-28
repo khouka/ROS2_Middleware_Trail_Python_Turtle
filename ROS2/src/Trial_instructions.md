@@ -195,6 +195,6 @@ Now the interfaces will be discoverable by other ROS 2 packages. Lastly run the 
  ```
 You have now fully completed the msg and srv tasks. Whenever you open a new terminal make sure you source your ROS2 installation, `$ source/opt/ros/eloquent/setup.bash` and then inside your workspace run `$ . install/setup.bash`.
 
-
+* Checkpoint 1: The Build should be successful without any errors. Please direct to ROS2_Middleware_Trail_Python_Turtle/README.md for any questions or issues you encounter.
 
 

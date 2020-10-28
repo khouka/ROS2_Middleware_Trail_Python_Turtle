@@ -37,16 +37,24 @@ A workspace is a directory containing ROS 2 packages. Before using ROS 2, it’s
 ### Package:
 Packages work quite differently in ROS 2 then ROS. You can see a package as a container for your ROS 2 code.  If you want to be able to install your code or share it with others, then you’ll need to organize it in a package. A single workspace can contain as many packages as you want. It is best to have a `src` folder within your workspace, and to create your packages in there. This keeps the workspace neat and easy to navigate through. In this directory, you will find a completed webcam python-type package. Navigate to it with, `~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src/webcam`. For this example, we will need 2 more packages. You’ll create 2 packages of different types, one for the python turtle, and the other for the interfaces(msg and srv):
  - Source your new terminal: 
-   `$ source/opt/ros/eloquent/setup.bash`
-
+   ```
+   $ source/opt/ros/eloquent/setup.bash
+   ```
+   
  - Navigate to  `~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src`:
-   `$ cd ~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src`
-
+   ```
+   $ cd ~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src
+   ```
+   
  - Create a pure python package named python_turtle, here is where you will be developing and storing your code files. 
-   `$ ros2 pkg create --build-type ament_python python_turtle`
-
+   ```
+   $ ros2 pkg create --build-type ament_python python_turtle
+   ```
+   
  - Next we create a Cmake package named `interfaces`, in which we will develop our msg and srv files to be later imported in our code files. There currently isn’t a way to generate a `.msg` or `.srv` file in a pure Python package. 
-   `$ ros2 pkg create --build-type ament_cmake interfaces`
+   ```
+   $ ros2 pkg create --build-type ament_cmake interfaces
+   ```
 
 You should now have 2 new folders inside your `ROS2_Middleware_Trail_Python_Turtle/ROS2/src`, the `python_turtle/` package, and the `interfaces/` package. By doing that you have created two packages, now let’s customize them!  
 

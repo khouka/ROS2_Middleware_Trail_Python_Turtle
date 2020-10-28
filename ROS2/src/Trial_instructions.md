@@ -417,7 +417,7 @@ Finally, the main function is defined. Here we simply initialize ROS2 communicat
 if __name__ == '__main__':
     main()
 ```
-Lastly we call the entry point to be executed. The entry point here is the main() function. It’s very important that you write all your code inside the main() function. *By filling up the `<>` sections above, you should have a complete turtle server.
+Lastly we call the entry point to be executed. The entry point here is the main() function. It’s very important that you write all your code inside the main() function. By filling up the `<>` sections above, you should have a complete turtle server.
 
   - `Checkpoint 4`: Run the code with $ python3 turtle_server.py , it should be running with no error messages. Please redirect to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
   
@@ -507,11 +507,56 @@ def main():
 if __name__ == '__main__':
    main()
 ```
-Finally, we have the main. The exact same as any other main we ran across in this trail, just give it a random node name of your choice, and we are calling the Node class `Turtle_Client()`. *By filling up the `<>` sections above, you should have a complete Client turtle.
+Finally, we have the main. The exact same as any other main we ran across in this trail, just give it a random node name of your choice, and we are calling the Node class `Turtle_Client()`. By filling up the `<>` sections above, you should have a complete Client turtle.
 
   - `Checkpoint 5`: Run the `turtle_server.py` code, then in a new terminal run `$ python3 Client_turtle.py` , it should  bring up a window that displays the turtle move in a stair like motion, take a look at the shells, there should be the turtle’s coordinates displaying in one, and the remaining distance on the Client shell. Please redirect to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
 
+Now you will run the Service/Client nodes in the ROS 2 method. Navigate to the setup.py inside (`~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src/python_turtle`. Look for lines:
+```
+    entry_points={
+        'console_scripts': [
+           ‘<name of the service node> = <name of the package>.<name of the file>:main’,
+            ‘<name of the client node> = <name of the package>.<name of the file>:main’,
+        ],
+    },
+```
+ - Here you will add an entry point for both the Client and Service. 
+ 
+ - Now that you have finished editing your `python_turtle` package, the next step is to build the   package. In the root of your workspace (~/ROS2_Middleware_Trail_Python_Turtle/ROS2), run the following command: 
+   ```
+   $colcon build --packages-select python_turtle
+   ```
+   Or simply run `$colcon build` to compile all the packages in your workspace. 
 
+ - Lastly run the following command from within your workspace (~/ROS2_Middleware_Trail_Python_Turtle/ROS2) to source it: 
+   ```
+   $ . install/setup.bash
+   ```
+ - In every new terminal make sure you source your ROS2: `$ source/opt/ros/eloquent/setup.bash`, and then inside your workspace run: `$. install/setup.bash.`
 
+ - Run `$ cd`, you can now run the server node:
+   ```
+   $ ros2 run <name of the package> <name of the service node>
+   ```
+ - In a new terminal, source both your ROS 2 installation and you workspace, then run:
+   ```
+   $ ros2 run <name of the package> <name of the client node>
+   ```
+   
+  - `Checkpoint 6`: After running the two nodes in the ROS 2 fashion, you should have the same display results as you did in `Checkpoint 5`. Please redirect to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
+  
+## Task 1:
+From the tutorial above, you should have a firm understanding on how publishers and subscribers work. Given the `keyboard.py` and the `Turtle_Arena.py` under `~/ROS2/Examples`, create a 2 publisher, 1 subscriber model all inside (`~/ROS2/src/python_turtle/python_turtle/`)  that displays the turtle in it’s maze, while driving the turtle accordingly from inputs on the keyboard. In the second publisher, create a script to prompt the user to input a color for the turtle. You should end up with 3 files, and have the ability to move the turtle around the maze using the keyboard and change the turtle’s color by prompting the user. Run the scripts in ROS 2 fashion. Look at the diagram and output for a visual understanding:
+
+- put understadning 
+- put gif
+- checkpoint 7
+
+## Task 2:
+The webcam publisher is provided and the turtle server node was created through the tutorial. In this task you will create a server-client model like the shown in the diagram below. The webcam will capture images constantly, convert them to ROS messages and publish them. The turtle server node will receive the coordinates for both the goal and the turtle, and Float64 msg will return the remaining distance. Given the red_detection example `Examples/red_detection.py`, and the `Examples/Goal_seeker.py`  create the final client node subscribing images from the webcam, converting them back to OpenCV iplimage, The client turtle node will then display the turtle using the turtle module and through color detection the turtle should be commanded accordingly. Run the scripts in ROS 2 fashion. 
+
+- put understadning
+- checkpoint 7
+- Fix the gif then put it.
 
 

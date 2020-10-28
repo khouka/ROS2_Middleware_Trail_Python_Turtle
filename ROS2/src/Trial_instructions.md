@@ -58,8 +58,142 @@ Packages work quite differently in ROS 2 then ROS. You can see a package as a co
 
 You should now have 2 new folders inside your `ROS2_Middleware_Trail_Python_Turtle/ROS2/src`, the `python_turtle/` package, and the `interfaces/` package. By doing that you have created two packages, now let’s customize them!  
 
+### Message Types:
+`msg` files are simple text files that describe the fields of a ROS 2 message. They are used to generate source code for messages in different languages. In this trail you will be using them in pub/sub nodes. For this task, you will be creating a custom `.msg` file in the `interfaces` package , and then utilizing it in the `python_turtle` package:
 
+ - Navigate to  `~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src/interfaces`:
+   ```
+   $ cd ~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src/interfaces
+   ```
 
+ - It is a good practice to keep a `.msg` file in its own directory within a package. Create the directory:
+   ```
+   $ mkdir msg
+   ```
+
+ - Inside the `interface/msg/` directory you just created, make a new file called `Setcolor.msg` with one line of code declaring its data structure:
+   ```
+   string color
+   ```
+   msg files are composed of two parts: `fields` and `constants`.This is your custom message that will transfer a single string called `color`. 
+
+To convert the interface you just created into language-specific code (here python) so that they can be used later, you must first modify the `package.xml` as well as `CMakeLists.txt`. 
+
+  - First, you must open up `CMakeLists.txt`, and search for lines below:
+    ```
+    # uncomment the following section in order to fill in
+    # further dependencies manually.
+    # find_package(<dependency> REQUIRED)
+    ```
+    
+    Add the following lines underneath it:    
+    ```
+    find_package(rosidl_default_generators REQUIRED)    
+    
+    rosidl_generate_interfaces(${PROJECT_NAME}            
+      "msg/Setcolor.msg"            
+    )
+    ```
+    
+  - Next open your package.xml, and search for lines below:
+    ```
+    <buildtool_depend>ament_cmake</buildtool_depend>
+    ```
+    
+    Add the following lines underneath it: 
+    ```
+    <build_depend>rosidl_default_generators</build_depend>
+    <exec_depend>rosidl_default_runtime</exec_depend>
+    <member_of_group>rosidl_interface_packages</member_of_group>
+    ```
+
+By finishing the above, the message type should be built together when building the package. 
+
+- You can include the message type similar to how you would include it in ROS: 
+  ```
+  from interfaces.msg import Setcolor
+  ```
+  
+- And to create an object of that message type:
+  ```
+  msg = Setcolor()
+  msg.color = choice
+  ```
+  
+### Service Types: 
+`srv` files describe a service. They are composed of two parts: a `request` and a `response`. The request and response are message declarations. In this trail you will use them in the Client/Service nodes. For this task, you will create a custom `.srv` file in the interfaces package , and then utilize it in the `python_turtle` package:
+  - Navigate to  `~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src/interfaces`:
+    ```
+    $ cd ~/ROS2_Middleware_Trail_Python_Turtle/ROS2/src/interfaces
+    ```
+    
+  - It is a good practice to keep a `.srv` file in its own directory within a package. Create the directory:
+    ```
+    $ mkdir srv
+    ```
+    
+  - Inside the `interface/srv` directory you just created, make a new file called `Distance.srv` with with the following request and response structure:
+    ```
+    float64 x1 
+    float64 y1 
+    float64 x2 
+    float64 y2
+    ---
+    float64 dist
+    ```
+    
+    A service file consists of a request and a response of msg type that are separated by `---`. Any   two .msg files linked with a `—` is a service description.This is your custom service that requests 4 floats named `x1`, `y1`, `x2` and `y2`, and responds with a float called `dist`.
+
+To convert the interface you just created into language-specific code (here python) so that they can be used later, you must first modify the same `package.xml` and `CMakeLists.txt` you modified for the msg type. 
+  - Open up the  `CMakeLists.txt`, and search for lines below: 
+    ```
+    find_package(rosidl_default_generators REQUIRED)    
+    
+    rosidl_generate_interfaces(${PROJECT_NAME}            
+     "msg/Setcolor.msg"            
+    )
+    ```
+    
+    Edit it by adding the srv file.
+    ```
+    find_package(rosidl_default_generators REQUIRED) 
+    
+    rosidl_generate_interfaces(${PROJECT_NAME}            
+     "msg/Setcolor.msg"
+     "srv/Distance.srv"            
+    )
+    ```
+    You already did the necessary modifications for the `package.xml` in the msg task earlier. 
+
+You can include the srv type similar to how we included the msg type. 
+ ```
+ from interfaces.srv import Distance 
+ ```
+ 
+We initialize the server by: 
+ ```
+ self.srv = self.create_service(Distance, 'var04', self.Find_Distance)
+ ```
+ 
+The function is then provided underneath in the same class. 
+ ```
+ def Find_Distance(self, request, response):
+    response.dist = <The formula> 
+    return response
+ ```
+ 
+Congrats! you have successfully customized your msg and srv files inside your interfaces package. Scroll to `Build Package` to compile your package. 
+
+### Build Package:
+Now that you have fully customized and organized your interfaces package, the next step is to build the package. In the root of your workspace (`~/ROS2_Middleware_Trail_Python_Turtle/ROS2`), run the following commands:
+ ```
+ $ colcon build --packages-select interfaces
+ ```
+Now the interfaces will be discoverable by other ROS 2 packages. Lastly run the following command from within your workspace (`~/ROS2_Middleware_Trail_Python_Turtle/ROS2`) to source it:
+ ```
+ $ . install/setup.bash
+ ```
+You have now fully completed the msg and srv tasks. Whenever you open a new terminal make sure you source your ROS2 installation, `$ source/opt/ros/eloquent/setup.bash` and then inside your workspace run `$ . install/setup.bash`.
 
 
 

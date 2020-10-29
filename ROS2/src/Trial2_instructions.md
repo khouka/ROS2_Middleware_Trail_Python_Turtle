@@ -201,6 +201,88 @@ Finally, we have the main. The exact same as any other main we ran across in thi
 
   - `Checkpoint 3`: Run the code with `$ python3 Spiral_server.py`, it should be running with no error messages, and there should be a black screen turtle window with the turtle in static in the middle. Please direct to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter. 
 
+### Developing an Action Client node:  
+Next you will create an action Client for the `Spiral_server.py` you created just earlier. In the same directory. Create a new file called `Spiral_client.py`. Copy the lines of code below inside. 
+```
+import <ROS 2 python client library>
+from rclpy.node import Node
+from rclpy.action import ActionClient
+from interfaces2.action import <action type>
+```
+We import the needed libraries. Our custom action type. The ActionClient is the necessary built-in library for any action client.
+```
+from action_msgs.msg import GoalStatus
+import time
+```
+Here we import the built-in GoalStatus library from the action_msgs.msg package which is very useful when developing action nodes . This msg type will describe the goal’s current state machine status. 
+```
+class Turtle_Action_Client(Node):
+  def __init__(self):
+    super().__init__('turtle_action_client')  
+    self.turtle_action = ActionClient(self,<action type>,'<action name>')
+```
+This part is identical to the action server, except we are calling an ActionClient, we won’t need to instantiate any callbacks ot functions as they will be called later through one another’s functions.
+```
+    def send_goal(self, loop_length):
+        self.get_logger().info('Waiting for action server...')
+        self.turtle_action.wait_for_server()
+        goal_action = <action type>.Goal()
+        goal_action.<action type goal> = loop_length
+```
+We define the primary part of our action client, the send_goal. We start off by using the wait_for_server method. This is used so that when we run the action client file, if no server is present, the client will wait until a server is found. Next we define our action goal. 
+```
+        self.goal_future =  self.turtle_action.send_goal_async(
+        goal_action, 
+        feedback_callback= self.feedback_callback)
+
+        self.goal_future.add_done_callback(self.goal_callback)
+```
+Here we instruct the client to send the action goal asynchronously, we then call the next function to be executed after the goal has been sent, the goal_callback. 
+```
+    def goal_callback(self, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            print('Goal was rejected')
+            return
+        self.get_logger().info('Goal was accepted, will proceed...')
+        
+        self.result_future = goal_handle.get_result_async()
+        self.result_future.add_done_callback(self.result_callback)
+```
+In the goal_callback function, is where the client will be notified whether the request goal has been successfully received and accepted. If the goal was rejected we notify the user and the process stops there, otherwise if it was accepted, we move on through the process, and call the next function to be executed, the feedback_callback, which will deal with the progressive feedback that the server will be publishing throughout the execution.  
+```
+    def feedback_callback(self, feedback_action):
+        feedback = feedback_action.feedback
+        self.get_logger().info('Received feedback: {0}'.format(feedback.<action type feedback>))
+```
+Inside the feedback callback we simply define our feedback, and then print the feedback in the shell using the get_logger method. 
+```
+    def result_callback(self, future):
+        result = future.result().result
+        status = future.result().status
+        if status == GoalStatus.STATUS_SUCCEEDED:
+            print('Goal succeeded! Total number of spirals:', result.<action type result>)
+        else:
+            print('Goal could not be reached')
+        # Shutdown after receiving a result
+        rclpy.shutdown()
+```
+Finally, the last part of the Action Client, the result callback. Here is will the final result, published by the server, be received back. We first define our result. Next we use the built-in action msg we imported earlier, the msg file consists of goal states. We will be using the STATUS_SUCCEEDED part. This conveys that the goal has been achieved successfully by the action server. If so, print the result, else notify the user the goal couldn't be reached. Lastly, shutdown after receiving a result. 
+```
+def main():
+    rclpy.init()
+    <node name> = Turtle_Action_Client()
+    
+    <node name>.send_goal(61)
+    rclpy.spin(<node name>)
+
+if __name__ == '__main__':
+    main()
+```
+Finally, the main function is defined. Here we simply initialize ROS2 communications, next you will define a node name for the Turtle_Action_Client() Node. Since we didn’t call the send_goal function earlier inside the node, you must call it here. We left an argument to be filled in that function, the number of loops the client is requesting. Finally, make the node spin using rclpy.spin(). We don’t need to shutdown the node here as it will be done when the result is received. By filling up the `<>` sections above, you should have a complete Action Client turtle.
+
+  - `Checkpoint 4`: In a shell, run the `Spiral_server.py` code, then in another terminal run the Action client:  `$ python3 Client_turtle.py` , it should bring up a window similar to the one shown below, with the correct feedback and result after the requested number of loops are executed. Please direct to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.  
+
 
  
 

@@ -286,6 +286,19 @@ Finally, the main function is defined. Here we simply initialize ROS2 communicat
   <p align="left">
   <img src="https://media.giphy.com/media/7nm1apk5sz0BJJPRz1/giphy.gif" alt="" width="50%">
   </p>
+
+## Task: 
+### part a: 
+Inside the `interfaces2` package you created earlier, create a new action and name in `Go2Goal`. Inside, for the request, set 2 `int64` types `x` and `y`. Next for the result, a `float64` called `total_time` and `String` type called `winner`. Lastly, for the Feedback, an `int64` for the Euclidean distance named `remaining_distance1`, in addition, another 2 `int64` representing the turtle’s `x` and `y` coordinates. Duplicate the feedback for another turtle. In total, you must end up with `6 feedbacks`.  
+
+  - `Checkpoint 5`: Build your interfaces package with your new action file, it should build without any errors. Please direct to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
+
+### part b: 
+Using the action type you created in part a. Develop an Action Client called `G2G_client.py` and an Action Server called `G2G_server.py`, where the client requests a goal to be positioned in a point. The action server sets the desired point and by using the random library set 2 turtles to race towards the goal. The feedback should be set to the remaining distance to the goal and the turtle’s poses. Set the result to the amount of time the program was executing and the winner. View the diagram for a better understanding. 
+
+- understading
+- Checkpoint
+- output
   
 
 

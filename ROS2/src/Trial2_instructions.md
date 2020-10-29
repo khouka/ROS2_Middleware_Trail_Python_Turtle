@@ -281,7 +281,9 @@ if __name__ == '__main__':
 ```
 Finally, the main function is defined. Here we simply initialize ROS2 communications, next you will define a node name for the Turtle_Action_Client() Node. Since we didn’t call the send_goal function earlier inside the node, you must call it here. We left an argument to be filled in that function, the number of loops the client is requesting. Finally, make the node spin using rclpy.spin(). We don’t need to shutdown the node here as it will be done when the result is received. By filling up the `<>` sections above, you should have a complete Action Client turtle.
 
-  - `Checkpoint 4`: In a shell, run the `Spiral_server.py` code, then in another terminal run the Action client:  `$ python3 Client_turtle.py` , it should bring up a window similar to the one shown below, with the correct feedback and result after the requested number of loops are executed. Please direct to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.  
+  - `Checkpoint 4`: In a shell, run the `Spiral_server.py` code, then in another terminal run the Action client:  `$ python3 Client_turtle.py` , it should bring up a window similar to the one shown below, with the correct feedback and result after the requested number of loops are executed. Please direct to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
+  
+  https://media.giphy.com/media/7nm1apk5sz0BJJPRz1/giphy.gif
 
 
  

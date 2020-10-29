@@ -548,15 +548,22 @@ Now you will run the Service/Client nodes in the ROS 2 method. Navigate to the s
 ## Task 1:
 From the tutorial above, you should have a firm understanding on how publishers and subscribers work. Given the `keyboard.py` and the `Turtle_Arena.py` under `~/ROS2/Examples`, create a 2 publisher, 1 subscriber model all inside (`~/ROS2/src/python_turtle/python_turtle/`)  that displays the turtle in it’s maze, while driving the turtle accordingly from inputs on the keyboard. In the second publisher, create a script to prompt the user to input a color for the turtle. You should end up with 3 files, and have the ability to move the turtle around the maze using the keyboard and change the turtle’s color by prompting the user. Run the scripts in ROS 2 fashion. Look at the diagram and output for a visual understanding:
 
-https://media.giphy.com/media/ojDRGRohJiqVcBpV43/giphy.gif
-- put gif
-- checkpoint 7
+  <p align="center">
+  <img src="https://media.giphy.com/media/ojDRGRohJiqVcBpV43/giphy.gif" alt="" width="70%">
+  </p>
+  
+  - `Checkpoint 7`: You should end up with 3 files, and have the ability to move the turtle around the maze using the keyboard and change the turtle’s color by prompting the user. Please redirect to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
+  
 
 ## Task 2:
 The webcam publisher is provided and the turtle server node was created through the tutorial. In this task you will create a server-client model like the shown in the diagram below. The webcam will capture images constantly, convert them to ROS messages and publish them. The turtle server node will receive the coordinates for both the goal and the turtle, and Float64 msg will return the remaining distance. Given the red_detection example `Examples/red_detection.py`, and the `Examples/Goal_seeker.py`  create the final client node subscribing images from the webcam, converting them back to OpenCV iplimage, The client turtle node will then display the turtle using the turtle module and through color detection the turtle should be commanded accordingly. Run the scripts in ROS 2 fashion. 
 
-https://media.giphy.com/media/b6osXaxHNCL82FF7g1/giphy.gif
-- checkpoint 8
+  <p align="center">
+  <img src="https://media.giphy.com/media/b6osXaxHNCL82FF7g1/giphy.gif" alt="" width="70%">
+  </p>
+
+  - `Checkpoint 8`: By pointing the red, blue, green colors on the webcam, the turtle on screen should drive based on the color seen. Red, to move the turtle forward. Blue, for backward. Lastly, green to move the goal. Please redirect to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
+  
 - Fix the gif then put it.
 
 

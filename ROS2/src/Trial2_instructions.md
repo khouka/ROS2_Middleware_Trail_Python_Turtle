@@ -9,3 +9,18 @@ This is an extension to the ROS 2 Trial. There are three forms of communication 
 - ROS 2 Action Service: https://index.ros.org/doc/ros2/Tutorials/Actions/Writing-an-Action-Server-Python/ 
 - ROS 2 Action Client: https://index.ros.org/doc/ros2/Tutorials/Actions/Writing-an-Action-Client-Python/ 
 - ROS 2 Full Tutorial:  https://index.ros.org/doc/ros2/Tutorials/
+
+## Overview: 
+### Setup:
+- Packages 
+- Action Types
+
+### Action Service:
+- Developing an Action Server node
+
+### Action Client: 
+- Developing an Action Client node
+
+### Task:
+- Practice ROS 2 Action’s communication. 
+

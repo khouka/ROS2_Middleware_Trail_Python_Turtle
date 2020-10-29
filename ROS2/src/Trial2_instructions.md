@@ -297,12 +297,12 @@ Inside the `interfaces2` package you created earlier, create a new action and na
 Using the action type you created in part a. Develop an Action Client called `G2G_client.py` and an Action Server called `G2G_server.py`, where the client requests a goal to be positioned in a point. The action server sets the desired point and by using the random library set 2 turtles to race towards the goal. The feedback should be set to the remaining distance to the goal and the turtle’s poses. Set the result to the amount of time the program was executing and the winner. View the diagram for a better understanding. 
 
   <p align="center">
-  <img src="https://media.giphy.com/media/lIDhnwv7nLcvlAwSm4/giphy.gif" alt="" width="70%">
+  <img src="https://media.giphy.com/media/lIDhnwv7nLcvlAwSm4/giphy.gif" alt="" width="75%">
   </p>
 
   - `Checkpoint 6`: By completing the Task you should have a similar result to the output shown below.  Please direct to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
 
-  <p align="left">
+  <p align="center">
   <img src="https://media.giphy.com/media/0ErVajgEfCw7Wj5lKd/giphy.gif" alt="" width="75%">
   </p>
 

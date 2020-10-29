@@ -554,6 +554,9 @@ From the tutorial above, you should have a firm understanding on how publishers 
   
   - `Checkpoint 7`: You should end up with 3 files, and have the ability to move the turtle around the maze using the keyboard and change the turtle’s color by prompting the user. Please redirect to `ROS2_Middleware_Trail_Python_Turtle/README.md` for any questions or issues you encounter.
   
+  <p align="center">
+  <img src="https://media.giphy.com/media/eKm75ZTEBc2Utx5WNd/giphy.gif" alt="" width="60%">
+  </p>
 
 ## Task 2:
 The webcam publisher is provided and the turtle server node was created through the tutorial. In this task you will create a server-client model like the shown in the diagram below. The webcam will capture images constantly, convert them to ROS messages and publish them. The turtle server node will receive the coordinates for both the goal and the turtle, and Float64 msg will return the remaining distance. Given the red_detection example `Examples/red_detection.py`, and the `Examples/Goal_seeker.py`  create the final client node subscribing images from the webcam, converting them back to OpenCV iplimage, The client turtle node will then display the turtle using the turtle module and through color detection the turtle should be commanded accordingly. Run the scripts in ROS 2 fashion. 
